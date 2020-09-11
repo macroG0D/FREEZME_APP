@@ -1,7 +1,6 @@
 # Video presentation of the project:
 
-[link](https://youtu.be/JW-QwixgMnc)
-(sorry, it took more then 2 minutes)
+[Video presentation](https://youtu.be/JW-QwixgMnc)
 
 
 ## The problem:
@@ -35,7 +34,7 @@ This is a useful web application that can help user manage the fridge food by tr
         - Done function — moving all the selected items from the wishlist to fridge list
     3. Fridge History — list of all the actions that have been taken with the fridge
         - A list of all the actions that have been taken with the fridge items of the account
-            * The rows in the history table are automatically colored depending on the action (added, updated or removed from fridge list)
+            - The rows in the history table are automatically colored depending on the action (added, updated or removed from fridge list)
         - Clear history function — is extremely needed because at some point the amount of the data in the history database may be so enormous that it may lag on the user’s browser
     4. Filter function — an algorithm that comparing filter input and the items in the tables word by word to show not only the final result but all the items that starts with the same words and doing it on real time
     5. Voice input — any text or number input in the app (except of sign in and signup pages) is accompanied by the voice recognition option to make the app usage very easy and friendly
