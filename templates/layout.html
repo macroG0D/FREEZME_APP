@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/reset.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/media.css">
+
+    {% block css %}
+
+    {% endblock %}
+
+    <link rel="icon" href="/static/images/favicon.svg" sizes="any" type="image/svg+xml">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="userlang">{{lang}}</div>
+
+
+    <header class="main-header">
+        <div class="main-mnu">
+            <a href="/fridge" class="logo-href"><img src="/static/images/logo.svg" alt="Logo" class="logo"></a>
+            <li>
+                <ul><a class='mnu_item' href="/fridge">What's in Fridge</a> </ul>
+                <ul><a class='mnu_item' href="/wishlist">Wishlist</a> </ul>
+                <ul><a class='mnu_item' href="/history">Fridge History</a> </ul>
+            </li>
+        </div>
+        <div class="second-mnu">
+            <li>
+                <ul><a href="/user"> <img src="/static/userpics/{{account_pic}}" alt="userpic" class="menu-pic"></a>
+                </ul>
+                <!-- <ul><a href="settings">Settings</a></ul> -->
+            </li>
+        </div>
+
+    </header>
+
+    <div class="mobile-header">
+
+        <a href="/fridge" class="logo-href"><img src="/static/images/logo.svg" alt="Logo" class="logo"></a>
+        <div class="burger_mnu">
+            <span></span>
+        </div>
+    </div>
+    <!--   -->
+    <div class="burger_mnu_items hidden">
+        <li>
+            <ul><a href="/user"> <img src="/static/userpics/{{account_pic}}" alt="userpic" class="menu-pic"></a></ul>
+            <ul><a class='mnu_item' href="/fridge">What's in Fridge</a> </ul>
+            <ul><a class='mnu_item' href="/wishlist">Wishlist</a> </ul>
+            <ul><a class='mnu_item' href="/history">Fridge History</a> </ul>
+        </li>
+
+        <div class="credits">
+            <span class="tech">CS50 Final Project</span>
+            <span class="tech">Created by <a href="https://www.behance.net/tony_yemelyanov" target="_blank">Tony
+                    Yemelyanov</a> </span>
+        </div>
+    </div>
+
+
+
+
+
+    {% block body %}
+    {% endblock %}
+
+
+    {% block script %}
+
+    {% endblock %}
+
+    <footer>
+        <div class="footer-items">
+            <span class="tech">CS50 Final Project</span>
+            <span class="tech">Created by <a href="https://www.behance.net/tony_yemelyanov" target="_blank">Tony
+                    Yemelyanov</a> </span>
+        </div>
+    </footer>
+</body>
+
+</html>

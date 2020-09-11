@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<!-- <button name='test' value='test' onclick="test()">test</button> -->
+
+
+    <div class="modal">
+        <div class="modal-pop">  
+            <h3>Add to list</h3>
+            <form action="/useredit" method="POST">
+                <div class="form-group">
+                    <input type="text" class="main-input item-input" autocomplete="off" name="item-name" placeholder="Item name"><span class="voice-input" onclick="speachType()"></span>
+                    <input type="number" step="0.01" class="main-input qnt-input" autocomplete="off" name="quantity" placeholder="Quantity" min=1><span class="voice-input"></span>
+                    
+                    
+                    
+                    <div class="button-placeholder">
+                        <!-- render here the button from JS -->
+                        <!-- <button type="submit" name="add" value="add" class="btn-ctrl btn-add modal-btn"> Add </button> -->
+                    </div>
+                   
+               
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="section wide">
+        <div class="cont-block">
+            <div class="row">
+                <div class="user-template">
+                    <user-wrapper>
+                        <img src="/static/images/favicon.svg" alt="userpic" class="user-pic">
+                        <form action="/useredit">
+                        <input type="file" name="profile_pic" class="input-file">
+                        <button type="submit" name="add" value="add" class="btn-ctrl btn-add modal-btn"> Add </button>
+                        <</form>
+                        <h3>Username</h3>
+                    </user-wrapper>
+                 
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="cont-block">
+            <div class="row">
+
+                <div class="controls-view">
+                    <div class="table-name">
+
+                        <h1>Wishlist</h1>
+                    </div>
+                    <div class="options">
+                        <div class="search-bar">
+                            <input type="text" class="main-input search-input" name="search" autocomplete="off" placeholder="Search in fridge">
+                            <span class="voice-search"></span>
+                        </div>
+
+
+                        <div class="controls">
+                            <!-- <button onclick="callModal('add')" class="btn-ctrl btn-add" >Add</button>
+                            <button onclick="callModal('edit')" class="btn-ctrl btn-edit disable">Edit</button> -->
+                          
+                            <!-- <button onclick="post()" type="submit" name="post" value="remmove" class="btn-ctrl btn-remove">Remove</button> -->
+                               <!-- <button type="submit" name="add" value="add" class="btn-ctrl btn-add modal-btn"> Add </button> -->
+                                <button type="submit">Submit</button>
+                                 
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section current-list">
+        <div class="cont-block">
+            <div class="row">
+             
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+{% endblock %}
+
+
+{% block script %}
+
+{% endblock %}

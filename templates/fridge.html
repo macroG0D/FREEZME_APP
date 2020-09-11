@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <!-- margin-top 100 -->
+    <div class="top-space"></div>
+
+    <div class="modal">
+        <div class="modal-pop">  
+            <h3>Add to list</h3>
+            <form action="/fridge" method="POST">
+                <div class="form-group">
+
+                    <input type="text" class="main-input item-input" autocomplete="off" name="item-name" placeholder="Item name *" maxlength="30"><span class="voice-input" ></span>
+
+                    <input type="number" step="0.01" class="main-input qnt-input" autocomplete="off" name="quantity" placeholder="Quantity *" min=1><span class="voice-input"></span>
+
+                    <select name="qnt-units" class="unit-selector" id="qnt-units">
+                        <option value="units">Units</option>
+                        <option value="kilo">Kilo</option>
+                        <option value="gram">Gram</option>
+                        <option value="liter">Liter</option>
+                    </select>
+
+                        <input type="text" class="main-input descr" name="descr" placeholder="Free text" maxlength="60"><span class="voice-input"></span>
+
+                    <div class="button-placeholder">
+                        <!-- render here the button from JS -->
+                        <!-- <button type="submit" name="add" value="add" class="btn-ctrl btn-add modal-btn"> Add </button> -->
+                    </div>
+                   
+               
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="cont-block">
+            <div class="row">
+
+                <div class="controls-view">
+                    <div class="table-name">
+
+                        <h1>What's in the Fridge</h1>
+                    </div>
+                    <div class="options">
+                        <div class="search-bar">
+                            <input type="text" class="main-input search-input" name="search" autocomplete="off" placeholder="Search in fridge"><span class="voice-search" onclick="voice_search()"></span>
+                        </div>
+
+
+                        <div class="controls">
+                            <button onclick="callModal('add')" class="btn-ctrl btn-add" >Add</button>
+                            <button onclick="callModal('edit')" class="btn-ctrl btn-edit disable">Update</button>
+                          
+                            <button onclick="post('remove')" type="submit" name="remove" value="remove" class="btn-ctrl btn-remove disable">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section current-list">
+        <div class="cont-block">
+            <div class="row">
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr class="table-header">
+                                <th class="hidden" id="number">#</th> 
+                                <th id="item">Item</th>
+                                <th id="qnt">Quantity</th>
+                                <th id="descr">Desctiption</th>
+                                <th id="date">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for row in items: %}
+                        
+                            <tr class="table-row">
+                                <td class="hidden" id="number"><a href="#">{{row['item_id']}}</a></td>
+                                <td id="item" class="item-row"><a href="#">{{row['item']}}</a></td>
+                                <td id="qnt" class="qntval">{{row['quantity']}} {{row['qnt_units']}}</td>
+                                <td id="descr">{{row['descr']}}</td>
+                                <td id="date">{{row['date']}}</td>
+                              
+                             </tr>
+
+                        {% endfor %}
+                        <tr style="pointer-events: none;"></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+{% block script %}
+     <script src="/static/main.js"></script>
+{% endblock %}

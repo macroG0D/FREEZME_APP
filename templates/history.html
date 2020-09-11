@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+    <!-- margin-top 100 -->
+    <div class="top-space"></div>
+
+
+    <div class="section">
+        <div class="cont-block">
+            <div class="row">
+
+                <div class="controls-view">
+                    <div class="table-name">
+
+                        <h1>Fridge History</h1>
+                    </div>
+                    <div class="options">
+                        <div class="search-bar">
+                            <input type="text" autofocus class="main-input search-input" name="search" autocomplete="off" placeholder="Search in history">
+                            <span class="voice-search" onclick="voice_search()"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section current-list">
+        <div class="cont-block">
+            <div class="row">
+                <div class="table">
+                    <table>
+                        <thead>
+                        <tr class="table-header">
+                            <th class="hidden" id="number">#</th> 
+                            <th id="event">Event</th>
+                            <th id="item">Item</th>
+                            <th id="qnt">Quantity</th>
+                            <th id="descr">Description</th>
+                            <th id="date">Date</th>
+                            <!-- <th>User</th>   -->
+                        </tr>
+                        </thead>
+                        <tbody> 
+                        {% for row in items: %}
+                        
+                            <tr class="table-row">
+                                <td class="hidden" id="number"><a href="#">{{row['history_id']}}</a></td>
+                                <td id="event">{{row['history_event']}}</td>
+                                <td id="item" class="item-row"><a href="#">{{row['history_item']}}</a></td>
+                                <td id="qnt" class="qntval">{{row['history_quantity']}} {{row['history_qnt_units']}}</td>
+                                <td id="descr">{{row['descr']}}</td>
+                                <td id="date">{{row['date']}}</td>
+                                <!-- <td id="user">{{acc_name}}</td> -->
+                              
+                             </tr>
+
+                       
+                     
+                        {% endfor %}
+                        <tr style="pointer-events: none;"></tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+{% endblock %}
+{% block script %}
+    <script src="/static/main.js"></script>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block css %}
+    <link rel="stylesheet" href="/static/user.css">
+{% endblock %}
+{% block body %}
+
+<!-- <button name='test' value='test' onclick="test()">test</button> -->
+
+
+    <div class="section wide">
+        <div class="cont-block">
+            <div class="row">
+                <div class="user-template">
+                    <user-wrapper>    
+                        <form action="/user" method="post" enctype=multipart/form-data id="user-pic_form">
+                            <div class="pic-wrapper">
+                                <img src="/static/userpics/{{account_pic}}" alt="userpic" class="user-pic pic-changeOption">
+                                <div class="pic-overlay"></div>
+                            </div>
+                            
+                            <input type=file name=file id="pic-change" class="hidden">
+                        </form>
+                        <h3>{{email}}</h3>
+                    </user-wrapper>
+                 
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section user-mnu">
+        <div class="cont-block">
+            <div class="user-options-wrapper">
+               
+                <form class="langchange" action="user" method="POST">
+                    <label for="lang">Voice input language</label>
+                    <select name="lang" class="unit-selector" id="lang">
+                        <option class="langopt" value="en">English</option>
+                        <option class="langopt" value="ru">Russian</option>
+                    </select> 
+                    <button type="submit" name="langchange" class='btn-main btn-dark btn-user'>Change lang</button>
+                </form>
+                
+                <form action="logout" method="POST">
+                    <button type="submit" name="logout" class='btn-main btn-dark btn-user'>Logout</button>
+                </form>
+                <!-- <form action="/history" method="POST"> -->
+                    <button onclick="clearHistoryConfirm()" name="clearHistory" class='btn-transparent'>Clear fridge history</button>
+                <!-- </form> -->
+
+
+ 
+            </div>
+ 
+
+        </div>
+    </div>
+
+
+    </div>
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="/static/main.js"></script>
+    <script src="/static/user.js"></script>
+{% endblock %}
